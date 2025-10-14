@@ -1,0 +1,26 @@
+# Ignore the .env file
+.env
+
+# Ignore node_modules
+node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore build output
+.bsp/
+.metals/
+.scala-build/
+.vscode/
+.bloop/
+project/metals.sbt
+project/project/
+project/metals/
+project/target/
+postgres-data/
+target/
+
+*.wav
+*.mp3
+*.txt
+moh-diagnostic-codes-en-2023-09-01.pdf
