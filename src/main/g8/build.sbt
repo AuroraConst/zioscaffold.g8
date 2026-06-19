@@ -1,14 +1,14 @@
-val zioVersion            = "2.1.9"
-val zioJsonVersion        = "0.7.3"
-val zioConfigVersion      = "4.0.2"
-val zioLoggingVersion     = "2.3.2"
+val zioVersion            = "2.1.18"
+val zioJsonVersion        = "0.9.2"
+val zioConfigVersion      = "4.0.7"
+val zioLoggingVersion     = "2.5.3"
 val logbackClassicVersion = "1.4.7"
 val postgresqlVersion     = "42.6.0"
 val testContainersVersion = "0.40.15"
-val zioMockVersion        = "1.0.0-RC11"
-val zioHttpVersion        = "3.0.0-RC1"
-val quillVersion          = "4.6.0.1"
-val apachePDFBoxVersion   = "3.0.5"
+val zioMockVersion        = "1.0.0-RC12"
+val zioHttpVersion        = "3.11.2"
+val quillVersion          = "4.8.6"
+val apachePDFBoxVersion   = "3.0.7"
 
 lazy val root = (project in file("."))
   .settings(
@@ -46,12 +46,15 @@ lazy val root = (project in file("."))
       "dev.zio"       %% "zio-config-magnolia" % zioConfigVersion,
       "ch.qos.logback" % "logback-classic"     % logbackClassicVersion,
       "dev.zio"       %% "zio-json"            % zioJsonVersion,
+      
 
-    
+
       // logging
       "dev.zio"       %% "zio-logging"       % zioLoggingVersion,
       "dev.zio"       %% "zio-logging-slf4j" % zioLoggingVersion,
       "ch.qos.logback" % "logback-classic"   % logbackClassicVersion,
+
+
 
       // test
       "dev.zio"      %% "zio-test"                        % zioVersion            % Test,
@@ -61,6 +64,8 @@ lazy val root = (project in file("."))
       "com.dimafeng" %% "testcontainers-scala-postgresql" % testContainersVersion % Test,
       "dev.zio"      %% "zio-test-magnolia"               % zioVersion            % Test,
     ),
+
+    libraryDependencySchemes += "dev.zio"       %% "zio-json"  % VersionScheme.Always,
     testFrameworks := Seq(new TestFramework("zio.test.sbt.ZTestFramework")),
   )
   .enablePlugins(JavaAppPackaging)
