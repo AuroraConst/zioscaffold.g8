@@ -69,6 +69,6 @@ lazy val root = (project in file("."))
     ),
 
     libraryDependencySchemes += "dev.zio"       %% "zio-json"  % VersionScheme.Always,
-    testFrameworks := Seq(new TestFramework("zio.test.sbt.ZTestFramework")),
+    // testFrameworks := Seq(new TestFramework("zio.test.sbt.ZTestFramework")),
   )
   .enablePlugins(JavaAppPackaging)
