@@ -1,13 +1,13 @@
-val zioVersion            = "2.1.9"
-val zioJsonVersion        = "0.7.3"
-val zioConfigVersion      = "4.0.2"
-val zioLoggingVersion     = "2.3.2"
+val zioVersion            = "2.1.26"
+val zioJsonVersion        = "0.10.0"
+val zioConfigVersion      = "4.0.8"
+val zioLoggingVersion     = "2.5.3"
 val logbackClassicVersion = "1.4.7"
-val postgresqlVersion     = "42.6.0"
-val testContainersVersion = "0.40.15"
-val zioMockVersion        = "1.0.0-RC11"
-val zioHttpVersion        = "3.0.0-RC1"
-val quillVersion          = "4.6.0.1"
+val postgresqlVersion     = "42.7.13"
+val testContainersVersion = "0.44.1"
+val zioMockVersion        = "1.0.0-RC11" //deprecated The ZIO ecosystem has largely shifted away from heavy macro-based mock frame abstractions (zio-mock) toward ZIO Test native testing patterns. ZIO 2.x emphasizes using standard Scala features—such as manual test layers, stubbing dependencies with plain case classes, or utilizing standard testing libraries (e.g., Mockito, ScalaMock)—over complex expectation DSLs
+val zioHttpVersion        = "3.11.3" 
+val quillVersion          = "4.8.6"
 val apachePDFBoxVersion   = "3.0.5"
 
 lazy val root = (project in file("."))
