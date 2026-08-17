@@ -9,6 +9,7 @@ val zioMockVersion        = "1.0.0-RC11" //deprecated The ZIO ecosystem has larg
 val zioHttpVersion        = "3.11.3" 
 val quillVersion          = "4.8.6"
 val apachePDFBoxVersion   = "3.0.5"
+val scalatestVersion       = "3.2.20"
 
 lazy val root = (project in file("."))
   .settings(
@@ -60,6 +61,8 @@ lazy val root = (project in file("."))
       "dev.zio"      %% "zio-mock"                        % zioMockVersion        % Test,
       "com.dimafeng" %% "testcontainers-scala-postgresql" % testContainersVersion % Test,
       "dev.zio"      %% "zio-test-magnolia"               % zioVersion            % Test,
+      "org.scalactic" %% "scalactic" % scalatestVersion % Test,
+      "org.scalatest" %% "scalatest" % scalatestVersion % Test
     ),
     testFrameworks := Seq(new TestFramework("zio.test.sbt.ZTestFramework")),
   )
