@@ -1,14 +1,15 @@
-val zioVersion            = "2.1.18"
-val zioJsonVersion        = "0.9.2"
-val zioConfigVersion      = "4.0.7"
+val zioVersion            = "2.1.26"
+val zioJsonVersion        = "0.10.0"
+val zioConfigVersion      = "4.0.8"
 val zioLoggingVersion     = "2.5.3"
 val logbackClassicVersion = "1.4.7"
-val postgresqlVersion     = "42.6.0"
-val testContainersVersion = "0.40.15"
-val zioMockVersion        = "1.0.0-RC12"
-val zioHttpVersion        = "3.11.2"
+val postgresqlVersion     = "42.7.13"
+val testContainersVersion = "0.44.1"
+val zioMockVersion        = "1.0.0-RC11" //deprecated The ZIO ecosystem has largely shifted away from heavy macro-based mock frame abstractions (zio-mock) toward ZIO Test native testing patterns. ZIO 2.x emphasizes using standard Scala features—such as manual test layers, stubbing dependencies with plain case classes, or utilizing standard testing libraries (e.g., Mockito, ScalaMock)—over complex expectation DSLs
+val zioHttpVersion        = "3.11.3" 
 val quillVersion          = "4.8.6"
-val apachePDFBoxVersion   = "3.0.7"
+val apachePDFBoxVersion   = "3.0.5"
+val scalatestVersion       = "3.2.20"
 
 lazy val root = (project in file("."))
   .settings(
@@ -22,7 +23,7 @@ lazy val root = (project in file("."))
       "-Wunused:all",
     "-Werror:false"    ), 
 
-    name           := "pdfwriter",
+    name           := "$name$",
     run / fork := true, // Enable forking to run the zio application so that when it terminates it does not exit the sbt shell
 
     libraryDependencies ++=   Seq(
@@ -56,13 +57,15 @@ lazy val root = (project in file("."))
 
 
 
-      // test
+   // test
       "dev.zio"      %% "zio-test"                        % zioVersion            % Test,
       "dev.zio"      %% "zio-test-sbt"                    % zioVersion            % Test,
       "dev.zio"      %% "zio-test-junit"                  % zioVersion            % Test,
       "dev.zio"      %% "zio-mock"                        % zioMockVersion        % Test,
       "com.dimafeng" %% "testcontainers-scala-postgresql" % testContainersVersion % Test,
       "dev.zio"      %% "zio-test-magnolia"               % zioVersion            % Test,
+      "org.scalactic" %% "scalactic" % scalatestVersion % Test,
+      "org.scalatest" %% "scalatest" % scalatestVersion % Test
     ),
 
     libraryDependencySchemes += "dev.zio"       %% "zio-json"  % VersionScheme.Always,
