@@ -23,7 +23,7 @@ lazy val root = (project in file("."))
       "-Wunused:all",
     "-Werror:false"    ), 
 
-    name           := "pdfwriter",
+    name           := $name$,
     run / fork := true, // Enable forking to run the zio application so that when it terminates it does not exit the sbt shell
 
     libraryDependencies ++=   Seq(
